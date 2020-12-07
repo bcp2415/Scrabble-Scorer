@@ -36,8 +36,15 @@ function initialPrompt() {
 //   return Number(input.question("Enter 0, 1, or 2:"));
 // }
 
-function transform() {
-
+function transform(lettersByScore) {
+   const scoresByLetter = {};
+   for (let score in lettersByScore) {
+      let letters = lettersByScore[score];
+      for (let i=0; i<letters.length; i++){
+         scoresByLetter[letters[i].toLowerCase()] = Number(score);
+      }         
+   }
+  return scoresByLetter;
 }
 
 // function transform (lettersByScore) {
@@ -113,6 +120,7 @@ function transform() {
 
 module.exports = {
    initialPrompt: initialPrompt,
-   transform: transform
+   transform: transform,
+   oldPointStructure: oldPointStructure
 };
 
