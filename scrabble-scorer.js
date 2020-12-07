@@ -13,7 +13,15 @@ const oldPointStructure = {
 };
 
 function initialPrompt() {
-  
+  console.log(`
+   Welcome to the Scrabble score calculator.
+   Which scoring algorithm would you like to use?
+
+   0 - Scrabble: The traditional scoring algorithm.
+   1 - Simple Score: Each letter is worth 1 point.
+   2 - Bonus Vowels: Vowels are worth 3 pts, and consonants are 1 pt.
+
+   Enter 0, 1, or 2:`);
 }
 
 // function initialPrompt(scoringAlgorithms) {
@@ -104,7 +112,7 @@ function transform() {
 // runProgram(scoringAlgorithms);
 
 module.exports = {
-	initialPrompt: initialPrompt,
-	transform: transform
+   initialPrompt: initialPrompt,
+   transform: transform
 };
 

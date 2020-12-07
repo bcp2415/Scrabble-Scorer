@@ -18,14 +18,17 @@ describe("Scrabble Scorer solution", function() {
 	// 	}
 	// ];
 
+	// initialPrompt tests 
+
 	it("contains an initialPrompt function", function() {
 		expect(solution.initialPrompt).toBeDefined;
 	});
 
-	// it("initialPrompt prints messages to the console", function() {
-	// 	solution.initialPrompt(sampleArr);
-	// 	expect(console.log).toHaveBeenCalled();
-	// });
+	it("initialPrompt prints messages to the console", function() {
+		spyOn(console, 'log');
+		solution.initialPrompt();
+		expect(console.log).toHaveBeenCalled();
+	});
 	
 	it("contains a transform function", function() {
 		expect(solution.transform()).toBeDefined;
