@@ -41,36 +41,33 @@ describe("Scrabble Scorer solution", function() {
 	// Calling transform(oldPointStructure) will return an object with 
 	// lowercase letters as keys. The value for each key will be the points assigned to that letter.
 
+	// TODO: is it worth it to test passing anything into transform that is not solution.oldPointStructure?
 	it("transform returns an object", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		expect(transformedObj).toBeInstanceOf(Object);
 	});
 
+	it("transform returns an object that is not empty", function() {
+		let transformedObj = solution.transform(solution.oldPointStructure);
+		expect(Object.keys(transformedObj)).not.toBeNull();
+	});
+
 	it("transform returns an object with letter keys", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		let letterKeys = Object.keys(transformedObj);
+		
+		// TODO: ask someone to check this regex :D//
 		let lettersEx = /[a-z]/g;
-		// expect each value in letter keys to be a letter character
-		// Object.keys(oldPointStructure).forEach(function(k){
-		// 	console.log(instanceOf k);
-		// })
-		//letterKeys.toString
-		//let stringKeys = Object.keys(oldPointStructure).toString();
-		// letterKeys.forEach(function(k) {
-		// 	console.log(lettersEx.test(k));
-		// })
-		// console.log(letterKeys);
+		console.log(letterKeys);
+		letterKeys.push("4");
+
+		// .every() returns true if each item in the array passes the match
 		let expected = letterKeys.every(function(l) {
 			return l.match(lettersEx);
 		});
-		//console.log(lettersEx.toString())
-
-		// letterKeys.forEach(function(k) {
-		// 	console.log(k);
-		// });
 		
 		expect(expected).toBeTrue();
-	})
+	});
  
 	
  
