@@ -58,6 +58,8 @@ function transform(lettersByScore) {
 //   return scoresByLetter;
 // }
 
+let newPointStructure = transform(oldPointStructure);
+
 // function scrabbleScore(word, letterPoints) {
 //   let score = 0;
 //   for (let i = 0; i < word.length; i++){
@@ -121,6 +123,7 @@ function transform(lettersByScore) {
 module.exports = {
    initialPrompt: initialPrompt,
    transform: transform,
-   oldPointStructure: oldPointStructure
+   oldPointStructure: oldPointStructure,
+   newPointStructure: newPointStructure
 };
 
