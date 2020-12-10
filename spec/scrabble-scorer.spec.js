@@ -158,12 +158,29 @@ describe("Scrabble Scorer solution", function() {
 		expect(solution.vowelBonusScore('bar')).toBe(5);
 		
 	});
-	
-	// it("contains a scoringAlgorithms array", function() {
-	// 	console.log(typeof solution.scoringAlgorithms)
-	// 	//expect(typeof solution.scoringAlgorithms).toBe('array');
-	// 	//expect(solution.scoringAlgorithms).toBeDefined;
-	// });
+
+	// scrabbleScore tests //
+	it("contains a scrabbleScore function", function() {
+		expect(typeof solution.scrabbleScore).toBe('function');
+	});
+
+	it("scrabbleScore returns an integer score", function() {
+		expect(typeof solution.scrabbleScore('foo', solution.newPointStructure)).toBe('number');
+	});
+
+	it("scrabbleScore uses newPointStructure to score a word", function() {
+		expect(solution.scrabbleScore('foo', solution.newPointStructure)).toBe(6);
+		expect(solution.scrabbleScore('bar', solution.newPointStructure)).toBe(5);
+		expect(solution.scrabbleScore('baz', solution.newPointStructure)).toBe(14);
+	});
+
+	// Create an object for each of the three scoring options. 
+	// Each object should contain three keys: name, description, and scoreFunction.
+
+	// scoringAlgorithms tests //
+	it("contains a scoringAlgorithms array of three scoring objects", function() {
+		expect(solution.scoringAlgorithms[0]).toBe(3);
+	});
 
 	
  

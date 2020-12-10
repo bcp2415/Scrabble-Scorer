@@ -78,7 +78,18 @@ let vowelBonusScore = function(word){
    return score;
 };
 
+let scrabbleScore = function(word, letterPoints) {
+   let score = 0;
+   for (let i = 0; i < word.length; i++){
+      score += letterPoints[word[i].toLowerCase()];
+   }
+   return score;
+};
+
 const scoringAlgorithms = [
+   {},
+   {},
+   {}
 //   {
 //     name: "Scrabble",
 //     description: "The traditional scoring algorithm.",
@@ -163,6 +174,7 @@ module.exports = {
    newPointStructure: newPointStructure,
    simpleScore: simpleScore,
    vowelBonusScore: vowelBonusScore,
+   scrabbleScore: scrabbleScore,
    scoringAlgorithms: scoringAlgorithms
 };
 
