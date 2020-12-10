@@ -21,6 +21,7 @@ describe("Scrabble Scorer solution", function() {
 
 	// initialPrompt tests //
 
+	// TODO: why is this matcher always passing?
 	it("contains an initialPrompt function", function() {
 		expect(solution.initialPrompt).toBeDefined;
 	});
@@ -78,6 +79,10 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	// newPointStructure tests //
+	it("contains a newPointStructure object", function() {
+		expect(solution.newPointStructure).toBeDefined;
+	});
+
 	it("newPointStructure holds the result of transform", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		expect(solution.newPointStructure).toEqual(transformedObj);
@@ -113,6 +118,27 @@ describe("Scrabble Scorer solution", function() {
 			z: 10
 		}));
 	});
+
+	// simpleScore tests //
+	it("contains a simpleScore function", function() {
+		expect(typeof solution.simpleScore).toBe('function');
+	});
+
+	it("simpleScore returns an integer score", function() {
+		expect(typeof solution.simpleScore('foo')).toBe('number');
+	});
+
+	it("simpleScore returns a score equal to the length of its input", function() {
+		expect(solution.simpleScore('foo')).toBe(3);
+		expect(solution.simpleScore('')).toBe(0);
+	});
+	
+	// it("contains a scoringAlgorithms array", function() {
+	// 	console.log(typeof solution.scoringAlgorithms)
+	// 	//expect(typeof solution.scoringAlgorithms).toBe('array');
+	// 	//expect(solution.scoringAlgorithms).toBeDefined;
+	// });
+
 	
  
  });

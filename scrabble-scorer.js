@@ -60,6 +60,28 @@ function transform(lettersByScore) {
 
 let newPointStructure = transform(oldPointStructure);
 
+let simpleScore = function(word){
+   return word.length;
+};
+
+const scoringAlgorithms = [
+//   {
+//     name: "Scrabble",
+//     description: "The traditional scoring algorithm.",
+//     scoreFunction: scrabbleScore
+//   },
+//   {
+//     name: "Simple Score",
+//     description: "Each letter is worth 1 point.",
+//     scoreFunction: simpleScore
+//   },
+//   {
+//     name: "Bonus Vowels",
+//     description: "Vowels are 3 pts, consonants are 1pt",
+//     scoreFunction: vowelConsonantScore
+//   }
+];
+
 // function scrabbleScore(word, letterPoints) {
 //   let score = 0;
 //   for (let i = 0; i < word.length; i++){
@@ -124,6 +146,8 @@ module.exports = {
    initialPrompt: initialPrompt,
    transform: transform,
    oldPointStructure: oldPointStructure,
-   newPointStructure: newPointStructure
+   newPointStructure: newPointStructure,
+   simpleScore: simpleScore,
+   scoringAlgorithms: scoringAlgorithms
 };
 
