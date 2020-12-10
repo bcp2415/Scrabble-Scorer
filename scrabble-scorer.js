@@ -64,6 +64,20 @@ let simpleScore = function(word){
    return word.length;
 };
 
+let vowelBonusScore = function(word){
+   let score = 0;
+   let vowels = 'aeiou';
+   for (let i = 0; i < word.length; i++){
+      if (vowels.includes(word[i].toLowerCase())){
+         score += 3;
+      } 
+      else {
+         score++;
+      }
+   }
+   return score;
+};
+
 const scoringAlgorithms = [
 //   {
 //     name: "Scrabble",
@@ -148,6 +162,7 @@ module.exports = {
    oldPointStructure: oldPointStructure,
    newPointStructure: newPointStructure,
    simpleScore: simpleScore,
+   vowelBonusScore: vowelBonusScore,
    scoringAlgorithms: scoringAlgorithms
 };
 

@@ -132,6 +132,32 @@ describe("Scrabble Scorer solution", function() {
 		expect(solution.simpleScore('foo')).toBe(3);
 		expect(solution.simpleScore('')).toBe(0);
 	});
+
+	// vowelBonusScore tests //
+	it("contains a vowelBonusScore function", function() {
+		expect(typeof solution.vowelBonusScore).toBe('function');
+	});
+
+	it("vowelBonusScore returns an integer score", function() {
+		expect(typeof solution.vowelBonusScore('foo')).toBe('number');
+	});
+
+	it("vowelBonusScore returns three points per vowel", function() {
+		expect(solution.vowelBonusScore('a')).toBe(3);
+		expect(solution.vowelBonusScore('e')).toBe(3);
+		expect(solution.vowelBonusScore('i')).toBe(3);
+		expect(solution.vowelBonusScore('o')).toBe(3);
+		expect(solution.vowelBonusScore('u')).toBe(3);
+
+		expect(solution.vowelBonusScore('ae')).toBe(6);
+		expect(solution.vowelBonusScore('aei')).toBe(9);
+	});
+
+	it("vowelBonusScore returns one point per consonant", function() {
+		expect(solution.vowelBonusScore('foo')).toBe(7);
+		expect(solution.vowelBonusScore('bar')).toBe(5);
+		
+	});
 	
 	// it("contains a scoringAlgorithms array", function() {
 	// 	console.log(typeof solution.scoringAlgorithms)
