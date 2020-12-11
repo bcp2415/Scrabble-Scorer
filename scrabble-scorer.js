@@ -87,9 +87,21 @@ let scrabbleScore = function(word, letterPoints) {
 };
 
 const scoringAlgorithms = [
-   {},
-   {},
-   {}
+   {
+      name: "",
+      description: "",
+      scoringFunction: simpleScore
+   },
+   {
+      name: "",
+      description: "",
+      scoringFunction: vowelBonusScore
+   },
+   {
+      name: "",
+      description: "",
+      scoringFunction: scrabbleScore
+   }
 //   {
 //     name: "Scrabble",
 //     description: "The traditional scoring algorithm.",

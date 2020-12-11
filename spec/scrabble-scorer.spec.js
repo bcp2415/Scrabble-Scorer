@@ -1,4 +1,3 @@
-const { oldPointStructure } = require('../scrabble-scorer');
 const solution = require('../scrabble-scorer');
 
 describe("Scrabble Scorer solution", function() {
@@ -179,9 +178,25 @@ describe("Scrabble Scorer solution", function() {
 
 	// scoringAlgorithms tests //
 	it("contains a scoringAlgorithms array of three scoring objects", function() {
-		expect(solution.scoringAlgorithms[0]).toBe(3);
+		expect(solution.scoringAlgorithms.length).toBe(3);
 	});
 
+	it("scoringAlgorithms contains scoring objects with the correct property names", function() {
+		solution.scoringAlgorithms.forEach(function(s) {
+			let keys = Object.keys(s);
+			expect(keys).toContain("name");
+			expect(keys).toContain("description");
+			expect(keys).toContain("scoringFunction");
+		});
+	});
+
+	it("scoringAlgorithms contain three scoring objects", function() {
+		expect(solution.scoringAlgorithms).toContain(jasmine.objectContaining({
+			scoringFunction: solution.simpleScore,
+			scoringFunction: solution.vowelBonusScore,
+			scoringFunction: solution.scrabbleScore,
+		}));
+	});
 	
  
  });
