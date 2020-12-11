@@ -4,9 +4,6 @@ describe("Scrabble Scorer solution", function() {
 	// initialPrompt tests //
 
 	// TODO: why is this matcher always passing?
-	it("contains an initialPrompt function", function() {
-		expect(solution.initialPrompt).toBeDefined;
-	});
 
 	it("initialPrompt prints messages to the console", function() {
 		spyOn(console, 'log');
@@ -15,14 +12,6 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	// transform tests //
-	
-	it("contains a transform function", function() {
-		expect(solution.transform()).toBeDefined;
-	});
-
-	// Write a transform function that takes an object as a parameter. 
-	// Calling transform(oldPointStructure) will return an object with 
-	// lowercase letters as keys. The value for each key will be the points assigned to that letter.
 
 	// TODO: is it worth it to test passing anything into transform that is not solution.oldPointStructure?
 	it("transform returns an object", function() {
@@ -61,9 +50,6 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	// newPointStructure tests //
-	it("contains a newPointStructure object", function() {
-		expect(solution.newPointStructure).toBeDefined;
-	});
 
 	it("newPointStructure holds the result of transform", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
@@ -179,20 +165,7 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	// runProgram tests //
-	// Define a runProgram function that will:
-	// Accept the scoringAlgorithms array as an argument.
-	// Use initialPrompt to pick the algorithm.
-	// Prompt the user to enter a word to score. The prompt should also provide the user an option for ending the program.
-	// Use the selected algorithm to determine the score for the word:
-	// If the user enters 0 or an invalid option, use the Scrabble scoreFunction.
-	// If the user entered 1, use the Simple Score scoreFunction.
-	// If the user entered 2, use the Bonus Vowels scoreFunction.
-	// Display the score for the word.
-	// Repeat steps 3 to 5 until the user ends the program by entering 'Stop'. (Consider: Should this check be case-insensitive?)
-	it("contains a runProgram function", function() {
-		console.log(solution.runProgram)
-		expect(solution.runProgram()).toBeDefined;
-	});
+	// TODO: check other assignments for headless browser requirements
 	
  
  });
