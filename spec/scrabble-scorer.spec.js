@@ -1,23 +1,6 @@
 const solution = require('../scrabble-scorer');
 
 describe("Scrabble Scorer solution", function() {
-
-	// beforeEach(function(){
-	// 	spyOn(console, 'log');
-	// });
-
-	// let sampleArr = [
-	// 	{
-	// 		name: "Scrabble"
-	// 	},
-	// 	{
-	// 		name: "Simple Score"
-	// 	},
-	// 	{
-	// 		name: "Bonus Vowels"
-	// 	}
-	// ];
-
 	// initialPrompt tests //
 
 	// TODO: why is this matcher always passing?
@@ -173,9 +156,6 @@ describe("Scrabble Scorer solution", function() {
 		expect(solution.scrabbleScore('baz', solution.newPointStructure)).toBe(14);
 	});
 
-	// Create an object for each of the three scoring options. 
-	// Each object should contain three keys: name, description, and scoreFunction.
-
 	// scoringAlgorithms tests //
 	it("contains a scoringAlgorithms array of three scoring objects", function() {
 		expect(solution.scoringAlgorithms.length).toBe(3);
@@ -196,6 +176,22 @@ describe("Scrabble Scorer solution", function() {
 			scoringFunction: solution.vowelBonusScore,
 			scoringFunction: solution.scrabbleScore,
 		}));
+	});
+
+	// runProgram tests //
+	// Define a runProgram function that will:
+	// Accept the scoringAlgorithms array as an argument.
+	// Use initialPrompt to pick the algorithm.
+	// Prompt the user to enter a word to score. The prompt should also provide the user an option for ending the program.
+	// Use the selected algorithm to determine the score for the word:
+	// If the user enters 0 or an invalid option, use the Scrabble scoreFunction.
+	// If the user entered 1, use the Simple Score scoreFunction.
+	// If the user entered 2, use the Bonus Vowels scoreFunction.
+	// Display the score for the word.
+	// Repeat steps 3 to 5 until the user ends the program by entering 'Stop'. (Consider: Should this check be case-insensitive?)
+	it("contains a runProgram function", function() {
+		console.log(solution.runProgram)
+		expect(solution.runProgram()).toBeDefined;
 	});
 	
  
