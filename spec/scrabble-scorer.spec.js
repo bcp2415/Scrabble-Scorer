@@ -3,8 +3,6 @@ const solution = require('../scrabble-scorer');
 describe("Scrabble Scorer solution", function() {
 	// initialPrompt tests //
 
-	// TODO: why is this matcher always passing?
-
 	it("initialPrompt prints messages to the console", function() {
 		spyOn(console, 'log');
 		solution.initialPrompt();
