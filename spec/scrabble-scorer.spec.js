@@ -1,13 +1,6 @@
 const solution = require('../scrabble-scorer');
 
 describe("Scrabble Scorer solution", function() {
-	// initialPrompt tests //
-
-	it("initialPrompt prints messages to the console", function() {
-		spyOn(console, 'log');
-		solution.initialPrompt();
-		expect(console.log).toHaveBeenCalled();
-	});
 
 	// transform tests //
 
@@ -47,7 +40,7 @@ describe("Scrabble Scorer solution", function() {
 		expect(expected).toBeTrue();
 	});
 
-	// newPointStructure tests //
+	// // newPointStructure tests //
 
 	it("newPointStructure holds the result of transform", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
@@ -131,13 +124,15 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	it("scrabbleScore returns an integer score", function() {
-		expect(typeof solution.scrabbleScore('foo', solution.newPointStructure)).toBe('number');
+		let newPointStructure = solution.transform(solution.oldPointStructure);
+		expect(typeof solution.scrabbleScore('foo', newPointStructure)).toBe('number');
 	});
 
-	it("scrabbleScore uses newPointStructure to score a word", function() {
-		expect(solution.scrabbleScore('foo', solution.newPointStructure)).toBe(6);
-		expect(solution.scrabbleScore('bar', solution.newPointStructure)).toBe(5);
-		expect(solution.scrabbleScore('baz', solution.newPointStructure)).toBe(14);
+	it("scrabbleScore uses transform() to score a word", function() {
+		let newPointStructure = solution.transform(solution.oldPointStructure);
+		expect(solution.scrabbleScore('foo', newPointStructure)).toBe(6);
+		expect(solution.scrabbleScore('bar', newPointStructure)).toBe(5);
+		expect(solution.scrabbleScore('baz', newPointStructure)).toBe(14);
 	});
 
 	// scoringAlgorithms tests //
