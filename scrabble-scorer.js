@@ -12,88 +12,23 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
-function initialPrompt(scoringAlgorithms) {
-	console.log("Welcome to the Scrabble score calculator.\n")
-	
-	console.log("Which scoring algorithm would you like to use?\n");
-	for (let i = 0; i < scoringAlgorithms.length; i++) {
-	  let option = scoringAlgorithms[i];
-	  console.log(i + " - " + option["name"]+": " + option["description"]);
-	}
- 
-	return Number(input.question("Enter 0, 1, or 2:"));
-}
- 
+function initialPrompt() {};
 
-function transform(lettersByScore) {
-   const scoresByLetter = {};
-   for (let score in lettersByScore) {
-      let letters = lettersByScore[score];
-      for (let i=0; i<letters.length; i++){
-         scoresByLetter[letters[i].toLowerCase()] = Number(score);
-      }         
-   }
-  return scoresByLetter;
-}
+function transform() {};
 
-let simpleScore = function(word){
-   return word.length;
-};
+let simpleScore;
 
-let vowelBonusScore = function(word){
-   let score = 0;
-   let vowels = 'aeiou';
-   for (let i = 0; i < word.length; i++){
-      if (vowels.includes(word[i].toLowerCase())){
-         score += 3;
-      } 
-      else {
-         score++;
-      }
-   }
-   return score;
-};
+let vowelBonusScore;
 
-let scrabbleScore = function(word, letterPoints) {
-   let score = 0;
-   for (let i = 0; i < word.length; i++){
-      score += letterPoints[word[i].toLowerCase()];
-   }
-   return score;
-};
+let scrabbleScore;
 
-const scoringAlgorithms = [
-   {
-      name: "Simple",
-      description: "One point per character",
-      scoringFunction: simpleScore
-   },
-   {
-      name: "Vowel Bonus",
-      description: "Vowels are worth 3 points",
-      scoringFunction: vowelBonusScore
-   },
-   {
-      name: "Scrabble",
-      description: "Uses scrabble point system",
-      scoringFunction: scrabbleScore
-   }
-];
+const scoringAlgorithms = [];
 
-let newPointStructure = transform(oldPointStructure);
+let newPointStructure;
 
 function runProgram() {
  
-	let scorerIdx = initialPrompt(scoringAlgorithms);
-	let scorer = scoringAlgorithms[scorerIdx];
-	let word = '';
-	console.log(`Using algorithm: ${scorer.name}\n`);
- 
-	while(word.toLowerCase() !== "stop") {
-	  word = input.question("Enter a word to be scored, or 'Stop' to quit: ");
-	  let score = scorer.scoringFunction(word, newPointStructure);
-	  console.log(`Score for '${word}': ${score}\n`);
-	}
+	
 }
 
 module.exports = {

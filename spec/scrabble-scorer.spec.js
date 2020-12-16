@@ -3,8 +3,6 @@ const solution = require('../scrabble-scorer');
 describe("Scrabble Scorer solution", function() {
 
 	// transform tests //
-
-	// TODO: is it worth it to test passing anything into transform that is not solution.oldPointStructure?
 	it("transform returns an object", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		expect(transformedObj).toBeInstanceOf(Object);
@@ -19,7 +17,6 @@ describe("Scrabble Scorer solution", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		let letterKeys = Object.keys(transformedObj);
 		
-		// TODO: ask someone to check this regex :D//
 		let lettersEx = /[a-z]/g;
 
 		// .every() returns true if each item in the array passes the match
@@ -40,8 +37,7 @@ describe("Scrabble Scorer solution", function() {
 		expect(expected).toBeTrue();
 	});
 
-	// // newPointStructure tests //
-
+	// newPointStructure tests //
 	it("newPointStructure holds the result of transform", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		expect(solution.newPointStructure).toEqual(transformedObj);
@@ -156,9 +152,6 @@ describe("Scrabble Scorer solution", function() {
 			scoringFunction: solution.scrabbleScore,
 		}));
 	});
-
-	// runProgram tests //
-	// TODO: check other assignments for headless browser requirements
 	
  
  });
