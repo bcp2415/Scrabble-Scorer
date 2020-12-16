@@ -12,86 +12,34 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
-function initialPrompt() {
-//   console.log(`
-//    Welcome to the Scrabble score calculator.
-//    Which scoring algorithm would you like to use?
+function initialPrompt() {};
 
-//    0 - Scrabble: The traditional scoring algorithm.
-//    1 - Simple Score: Each letter is worth 1 point.
-//    2 - Bonus Vowels: Vowels are worth 3 pts, and consonants are 1 pt.
+function transform() {};
 
-//    Enter 0, 1, or 2:`);
-}
+let simpleScore;
 
-function transform(lettersByScore) {
-//    const scoresByLetter = {};
-//    for (let score in lettersByScore) {
-//       let letters = lettersByScore[score];
-//       for (let i=0; i<letters.length; i++){
-//          scoresByLetter[letters[i].toLowerCase()] = Number(score);
-//       }         
-//    }
-//   return scoresByLetter;
-}
+let vowelBonusScore;
+
+let scrabbleScore;
+
+const scoringAlgorithms = [];
 
 let newPointStructure;
-// let newPointStructure = transform(oldPointStructure);
 
-let simpleScore = function(word){
-   // return word.length;
-};
-
-let vowelBonusScore = function(word){
-   // let score = 0;
-   // let vowels = 'aeiou';
-   // for (let i = 0; i < word.length; i++){
-   //    if (vowels.includes(word[i].toLowerCase())){
-   //       score += 3;
-   //    } 
-   //    else {
-   //       score++;
-   //    }
-   // }
-   // return score;
-};
-
-let scrabbleScore = function(word, letterPoints) {
-   // let score = 0;
-   // for (let i = 0; i < word.length; i++){
-   //    score += letterPoints[word[i].toLowerCase()];
-   // }
-   // return score;
-};
-
-const scoringAlgorithms = [
-   // {
-   //    name: "",
-   //    description: "",
-   //    scoringFunction: simpleScore
-   // },
-   // {
-   //    name: "",
-   //    description: "",
-   //    scoringFunction: vowelBonusScore
-   // },
-   // {
-   //    name: "",
-   //    description: "",
-   //    scoringFunction: scrabbleScore
-   // }
-];
-
-
+function runProgram() {
+ 
+	
+}
 
 module.exports = {
    initialPrompt: initialPrompt,
    transform: transform,
    oldPointStructure: oldPointStructure,
-   newPointStructure: newPointStructure,
    simpleScore: simpleScore,
    vowelBonusScore: vowelBonusScore,
    scrabbleScore: scrabbleScore,
-   scoringAlgorithms: scoringAlgorithms
+	scoringAlgorithms: scoringAlgorithms,
+	newPointStructure: newPointStructure,
+	runProgram: runProgram
 };
 

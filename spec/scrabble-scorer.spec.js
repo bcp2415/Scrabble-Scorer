@@ -1,19 +1,8 @@
 const solution = require('../scrabble-scorer');
 
 describe("Scrabble Scorer solution", function() {
-	// initialPrompt tests //
-
-	// TODO: why is this matcher always passing?
-
-	it("initialPrompt prints messages to the console", function() {
-		spyOn(console, 'log');
-		solution.initialPrompt();
-		expect(console.log).toHaveBeenCalled();
-	});
 
 	// transform tests //
-
-	// TODO: is it worth it to test passing anything into transform that is not solution.oldPointStructure?
 	it("transform returns an object", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		expect(transformedObj).toBeInstanceOf(Object);
@@ -28,7 +17,6 @@ describe("Scrabble Scorer solution", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		let letterKeys = Object.keys(transformedObj);
 		
-		// TODO: ask someone to check this regex :D//
 		let lettersEx = /[a-z]/g;
 
 		// .every() returns true if each item in the array passes the match
@@ -50,7 +38,6 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	// newPointStructure tests //
-
 	it("newPointStructure holds the result of transform", function() {
 		let transformedObj = solution.transform(solution.oldPointStructure);
 		expect(solution.newPointStructure).toEqual(transformedObj);
@@ -133,13 +120,15 @@ describe("Scrabble Scorer solution", function() {
 	});
 
 	it("scrabbleScore returns an integer score", function() {
-		expect(typeof solution.scrabbleScore('foo', solution.newPointStructure)).toBe('number');
+		let newPointStructure = solution.transform(solution.oldPointStructure);
+		expect(typeof solution.scrabbleScore('foo', newPointStructure)).toBe('number');
 	});
 
-	it("scrabbleScore uses newPointStructure to score a word", function() {
-		expect(solution.scrabbleScore('foo', solution.newPointStructure)).toBe(6);
-		expect(solution.scrabbleScore('bar', solution.newPointStructure)).toBe(5);
-		expect(solution.scrabbleScore('baz', solution.newPointStructure)).toBe(14);
+	it("scrabbleScore uses transform() to score a word", function() {
+		let newPointStructure = solution.transform(solution.oldPointStructure);
+		expect(solution.scrabbleScore('foo', newPointStructure)).toBe(6);
+		expect(solution.scrabbleScore('bar', newPointStructure)).toBe(5);
+		expect(solution.scrabbleScore('baz', newPointStructure)).toBe(14);
 	});
 
 	// scoringAlgorithms tests //
@@ -163,9 +152,6 @@ describe("Scrabble Scorer solution", function() {
 			scoringFunction: solution.scrabbleScore,
 		}));
 	});
-
-	// runProgram tests //
-	// TODO: check other assignments for headless browser requirements
 	
  
  });
