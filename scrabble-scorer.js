@@ -44,16 +44,7 @@ let scrabbleScore;
 
 const scoringAlgorithms = [];
 
-function scorerPrompt() {
-	console.log("Which scoring algorithm would you like to use?\n");
-	for (let i = 0; i < scoringAlgorithms.length; i++) {
-	  let option = scoringAlgorithms[i];
-	  console.log(i + " - " + option["name"]+": " + option["description"]);
-	}
-  let choice = Number(input.question("Enter 0, 1, or 2:"));
- 
-	return scoringAlgorithms[choice];
-}
+function scorerPrompt() {}
 
 function transform() {};
 
