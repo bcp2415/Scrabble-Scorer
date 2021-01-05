@@ -37,12 +37,7 @@ describe("Scrabble Scorer solution", function() {
 		expect(expected).toBeTrue();
 	});
 
-	// newPointStructure tests //
-	it("newPointStructure holds the result of transform", function() {
-		let transformedObj = solution.transform(solution.oldPointStructure);
-		expect(solution.newPointStructure).toEqual(transformedObj);
-	});
-
+	// // newPointStructure tests //
 	it("newPointStructure contains the correct key-value pairs", function() {
 		expect(solution.newPointStructure).toEqual(jasmine.objectContaining({
 			a: 1,
@@ -136,15 +131,6 @@ describe("Scrabble Scorer solution", function() {
 		expect(solution.scoringAlgorithms.length).toBe(3);
 	});
 
-	it("scoringAlgorithms contains scoring objects with the correct property names", function() {
-		solution.scoringAlgorithms.forEach(function(s) {
-			let keys = Object.keys(s);
-			expect(keys).toContain("name");
-			expect(keys).toContain("description");
-			expect(keys).toContain("scoringFunction");
-		});
-	});
-
 	it("scoringAlgorithms contain three scoring objects", function() {
 		expect(solution.scoringAlgorithms).toContain(jasmine.objectContaining({
 			scoringFunction: solution.simpleScore,
@@ -153,5 +139,4 @@ describe("Scrabble Scorer solution", function() {
 		}));
 	});
 	
- 
- });
+});
