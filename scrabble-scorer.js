@@ -58,6 +58,7 @@ function vowelBonusScore(word) {
 };
 
 function scrabbleScore(word) {
+  word = word.toLowerCase();
   let score = 0;
   for (letter of word) {
     score += Number(newPointStructure[`${letter}`]);
