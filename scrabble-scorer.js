@@ -39,7 +39,13 @@ function initialPrompt() {
 };
 
 
-let simpleScore;
+let simpleScore = function(word) {
+  let score = word.length;
+
+
+  
+  return score;
+};
 
 let vowelBonusScore;
 
