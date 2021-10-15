@@ -40,14 +40,22 @@ function initialPrompt() {
 
 
 let simpleScore = function(word) {
-  let score = word.length;
-
-
-  
+  let score = word.length;  
   return score;
 };
 
-let vowelBonusScore;
+let vowelBonusScore = function(word) {
+  let score = 0;
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  for (letter of word) {
+    if (vowels.includes(letter.toLowerCase())) {
+      score += 3;
+    } else {
+      score += 1;
+    }
+  }
+  return score;
+};
 
 let scrabbleScore;
 
