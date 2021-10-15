@@ -39,12 +39,12 @@ function initialPrompt() {
 };
 
 
-let simpleScore = function(word) {
+function simpleScore(word) {
   let score = word.length;  
   return score;
 };
 
-let vowelBonusScore = function(word) {
+function vowelBonusScore(word) {
   let score = 0;
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   for (letter of word) {
@@ -59,9 +59,29 @@ let vowelBonusScore = function(word) {
 
 let scrabbleScore;
 
-const scoringAlgorithms = [];
+const scoringAlgorithms = [
+  {
+    name: 'Simple Score',
+    description: 'Each letter is worth 1 point.',
+    scoringFunction: simpleScore
+  },
+  {
+    name: 'Bonus Vowels',
+    description: 'Vowels are 3 pts, consonants are 1 pt.',
+    scoringFunction: vowelBonusScore
+  },
+  {
+    name: 'Scrabble',
+    description: 'The traditional scoring algorithm.',
+    scoringFunction: oldScrabbleScorer
+  }
+];
 
-function scorerPrompt() {}
+function scorerPrompt() {
+  const choiceOfScorer = input.question('Select the scorer you want to use (0 = simple; 1 = vowel bonuses; 2 = classic): ');
+  return scoringAlgorithms[choiceOfScorer];
+}
+console.log(scorerPrompt());
 
 function transform() {};
 
