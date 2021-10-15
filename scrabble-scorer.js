@@ -34,8 +34,8 @@ function oldScrabbleScorer(word) {
 let userWord;
 
 function initialPrompt() {
-   userWord = input.question("Let's play some scrabble! Enter a word:");
-   console.log(`${oldScrabbleScorer(userWord)}`)
+   userWord = input.question("Let's play some scrabble! Enter a word: ");
+   return userWord;
 };
 
 
@@ -78,10 +78,9 @@ const scoringAlgorithms = [
 ];
 
 function scorerPrompt() {
-  const choiceOfScorer = input.question('Select the scorer you want to use (0 = simple; 1 = vowel bonuses; 2 = classic): ');
+  const choiceOfScorer = input.question(`Which scoring algorithm would you like to use?\n\n0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}\n1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}\n2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}\nEnter 0, 1, or 2: `);
   return scoringAlgorithms[choiceOfScorer];
 }
-console.log(scorerPrompt());
 
 function transform() {};
 
@@ -89,6 +88,7 @@ let newPointStructure;
 
 function runProgram() {
    initialPrompt();
+   scorerPrompt();
    
 }
 
