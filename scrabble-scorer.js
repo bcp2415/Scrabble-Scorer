@@ -34,7 +34,18 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function isValid(word) {
-  return true;
+  let valid = true;
+
+  for (let i = 0; i < word.length; i++) {
+    console.log(`The character code at letter ${i} is ${word.charCodeAt(i)}.`)
+    if (word.toLowerCase().charCodeAt(i) < 97) {
+      valid = false;
+    } else if (word.toLowerCase().charCodeAt(i) > 122) {
+      valid = false;
+    };
+  }
+
+  return valid;
 }
 
 function initialPrompt() {
@@ -42,6 +53,7 @@ function initialPrompt() {
   let isWordValid = isValid(userWord);
   while (isWordValid === false) {
     userWord = input.question("Invalid entry. Please enter a word: ");
+    isWordValid = isValid(userWord);
   }
   return userWord;
 };
