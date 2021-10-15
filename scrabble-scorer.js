@@ -33,9 +33,17 @@ function oldScrabbleScorer(word) {
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
+function isValid(word) {
+  return true;
+}
+
 function initialPrompt() {
-   const userWord = input.question("Let's play some scrabble! Enter a word: ");
-   return userWord;
+  let userWord = input.question("Let's play some scrabble! Enter a word: ");
+  let isWordValid = isValid(userWord);
+  while (isWordValid === false) {
+    userWord = input.question("Invalid entry. Please enter a word: ");
+  }
+  return userWord;
 };
 
 
@@ -85,7 +93,7 @@ const scoringAlgorithms = [
 ];
 
 function scorerPrompt() {
-  const choiceOfScorer = input.question(`Which scoring algorithm would you like to use?\n\n0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}\n1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}\n2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}\nEnter 0, 1, or 2: `);
+  let choiceOfScorer = input.question(`Which scoring algorithm would you like to use?\n\n0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}\n1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}\n2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}\nEnter 0, 1, or 2: `);
   return scoringAlgorithms[choiceOfScorer];
 }
 
