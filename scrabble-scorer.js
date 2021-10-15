@@ -26,7 +26,7 @@ function oldScrabbleScorer(word) {
  
 	  }
 	}
-	return letterPoints;
+	return '\n' + letterPoints;
  }
 
 // your job is to finish writing these functions and variables that we've named //
@@ -89,7 +89,7 @@ let newPointStructure;
 function runProgram() {
    const userWord = initialPrompt();
    const algorithm = scorerPrompt();
-   const score = scoringAlgorithms[algorithm].scoringFunction(userWord);
+   const score = algorithm.scoringFunction(userWord);
    console.log(`Score for \'${userWord}': ${score}`);
 }
 
