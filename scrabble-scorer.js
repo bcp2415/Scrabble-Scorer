@@ -87,9 +87,10 @@ function transform() {};
 let newPointStructure;
 
 function runProgram() {
-   initialPrompt();
-   scorerPrompt();
-   
+   const userWord = initialPrompt();
+   const algorithm = scorerPrompt();
+   const score = scoringAlgorithms[algorithm].scoringFunction(userWord);
+   console.log(`Score for \'${userWord}': ${score}`);
 }
 
 // Don't write any code below this line //
