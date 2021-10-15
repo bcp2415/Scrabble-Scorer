@@ -35,7 +35,7 @@ let userWord;
 
 function initialPrompt() {
    userWord = input.question("Let's play some scrabble! Enter a word:");
-   console.log(`The old score for your word is \n${oldScrabbleScorer(userWord)}`)
+   console.log(`${oldScrabbleScorer(userWord)}`)
 };
 
 
