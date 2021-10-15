@@ -103,9 +103,12 @@ const scoringAlgorithms = [
     scoringFunction: scrabbleScore
   }
 ];
-
+console.log(Number('$'));
 function scorerPrompt() {
   let choiceOfScorer = input.question(`Which scoring algorithm would you like to use?\n\n0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}\n1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}\n2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}\nEnter 0, 1, or 2: `);
+  while (Number(choiceOfScorer) < 0 || Number(choiceOfScorer > 2) || Number(choiceOfScorer) === NaN) {
+    choiceOfScorer = input.question('Invalid entry; please entry 0, 1 or 2: ');
+  }
   return scoringAlgorithms[choiceOfScorer];
 }
 
