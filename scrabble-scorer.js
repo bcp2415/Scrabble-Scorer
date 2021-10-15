@@ -32,10 +32,9 @@ function oldScrabbleScorer(word) {
 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
-let userWord;
 
 function initialPrompt() {
-   userWord = input.question("Let's play some scrabble! Enter a word: ");
+   const userWord = input.question("Let's play some scrabble! Enter a word: ");
    return userWord;
 };
 
@@ -58,7 +57,13 @@ function vowelBonusScore(word) {
   return score;
 };
 
-let scrabbleScore;
+function scrabbleScore(word) {
+  let score = 0;
+  for (letter of word) {
+    score += Number(newPointStructure[`${letter}`]);
+  };
+  return score;
+};
 
 const scoringAlgorithms = [
   {
@@ -74,7 +79,7 @@ const scoringAlgorithms = [
   {
     name: 'Scrabble',
     description: 'The traditional scoring algorithm.',
-    scoringFunction: oldScrabbleScorer
+    scoringFunction: scrabbleScore
   }
 ];
 
@@ -83,9 +88,17 @@ function scorerPrompt() {
   return scoringAlgorithms[choiceOfScorer];
 }
 
-function transform() {};
+function transform(someObject) {
+  let newPointStructure = {};
+  for (pointValue in someObject) {
+    for (letter of someObject[pointValue]) {
+      newPointStructure[`${letter.toLowerCase()}`] = pointValue;
+    };
+  };
+  return newPointStructure;
+};
 
-let newPointStructure;
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    const userWord = initialPrompt();
