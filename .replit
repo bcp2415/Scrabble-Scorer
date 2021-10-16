@@ -1,2 +1,3 @@
 language = "nodejs"
-run = "nodejs index"
+onboot = "npm i"
+run = "node index"

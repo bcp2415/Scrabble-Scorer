@@ -37,7 +37,6 @@ function isValid(word) {
   let valid = true;
 
   for (let i = 0; i < word.length; i++) {
-    console.log(`The character code at letter ${i} is ${word.charCodeAt(i)}.`)
     if (word.toLowerCase().charCodeAt(i) === 32) {
       valid = true;
     } else if (word.toLowerCase().charCodeAt(i) < 97) {
