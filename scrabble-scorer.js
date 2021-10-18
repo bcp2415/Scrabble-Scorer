@@ -37,7 +37,6 @@ function isValid(word) {
   let valid = true;
 
   for (let i = 0; i < word.length; i++) {
-    console.log(`The character code at letter ${i} is ${word.charCodeAt(i)}.`)
     if (word.toLowerCase().charCodeAt(i) === 32) {
       valid = true;
     } else if (word.toLowerCase().charCodeAt(i) < 97) {
@@ -118,10 +117,10 @@ function transform(someObject) {
   let newPointStructure = {};
   for (pointValue in someObject) {
     for (letter of someObject[pointValue]) {
-      newPointStructure[`${letter.toLowerCase()}`] = pointValue;
+      newPointStructure[`${letter.toLowerCase()}`] = Number(pointValue);
     };
   };
-  newPointStructure[' '] = 0;
+  //newPointStructure[' '] = 0;
   return newPointStructure;
 };
 
@@ -149,3 +148,4 @@ module.exports = {
 	scorerPrompt: scorerPrompt
 };
 
+runProgram();
